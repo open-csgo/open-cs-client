@@ -33,7 +33,7 @@ cs_client.utils.register_on_joinplayer(function()
 	cs_client.change_gamestate({
 		state = "menu",
 		informations = {
-			page = "main",
+			page = "loading",
 		},
 	})
 end)

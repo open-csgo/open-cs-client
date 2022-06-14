@@ -27,6 +27,7 @@ tooltip[quit;Quit Game]
 local menu_form = table.concat({
 	"formspec_version[4]",
 	"size[18,10]",
+	"bgcolor[#100E1DBB;both;#100E1DBB]",
 	--style
 	--"bgcolor[#100E1DBB;true]",
 	--"listcolors[#00000069;#5A5A5A;#141318;#30434C;#FFF]",

@@ -2,6 +2,7 @@ local registered_on_joinplayer = {}
 
 local has_run = false
 
+---@param func fun()
 function cs_client.utils.register_on_joinplayer(func)
 	table.insert(registered_on_joinplayer, func)
 end

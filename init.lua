@@ -19,12 +19,15 @@ local modules = {
 	},
 	api = {
 		"api",
+		"data",
 	},
 	hud = {
 		"health",
 		"center_msg",
-		--"kill_history",
+		"kill_history",
 		"menu_home",
+		"hud_bar",
+		"flash",
 	},
 }
 
