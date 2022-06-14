@@ -1,7 +1,3 @@
----FIXME
----@type ObjectRef
-minetest.localplayer = minetest.localplayer
-
 local player_offset = vector.new(0, 1.625, 0)
 
 ---Get the angle between a position and the player look direction (in degrees).
