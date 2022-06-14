@@ -76,12 +76,12 @@ minetest.register_chatcommand("cmsg", {
 	end,
 })
 
-local mod_channel
+---local mod_channel
 local mod_channel_name
 
 cs_client.utils.register_on_joinplayer(function()
 	mod_channel_name = "cs_client:center_message:"..minetest.localplayer:get_name()
-	mod_channel = minetest.mod_channel_join(mod_channel_name)
+	minetest.mod_channel_join(mod_channel_name)
 end)
 
 minetest.register_on_modchannel_message(function(cname, sender, message)

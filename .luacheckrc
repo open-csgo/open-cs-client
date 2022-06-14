@@ -45,6 +45,7 @@ read_globals = {
 			"rotate_around_axis",
 			"rotate",
 			"dir_to_rotation",
+			"zero",
 		},
 	},
 

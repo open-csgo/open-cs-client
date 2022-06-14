@@ -32,7 +32,7 @@ cs_client.utils.register_on_joinplayer(function()
 	end
 end)
 
-local timeout = 0
+---local timeout = 0
 
 minetest.register_globalstep(function(dtime)
 	if minetest.localplayer and #hud_ids == 5 then
@@ -50,6 +50,10 @@ minetest.register_globalstep(function(dtime)
 	end
 end)
 
+--[[
+local timeout
+
+---@param text string
 function cs_client.hud.add_kill(text)
 	if minetest.localplayer then
 		timeout = 4
@@ -58,4 +62,4 @@ function cs_client.hud.add_kill(text)
 		--minetest.localplayer:hud_change(kill_hist.text, "text", text)
 		--minetest.localplayer:hud_change(kill_hist.bg, "text", "cs_player_msg_bg.png")
 	end
-end
+end]]

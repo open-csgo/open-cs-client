@@ -58,7 +58,7 @@ minetest.register_globalstep(function()
 			--Release a key
 			elseif cbool == false and controls.player[cname][1] == true then
 				for _, func in pairs(controls.registered_on_release) do
-					func(player, cname, os.clock() - controls.player[cname][2])
+					func(cname, os.clock() - controls.player[cname][2])
 				end
 				controls.player[cname] = {false}
 			end

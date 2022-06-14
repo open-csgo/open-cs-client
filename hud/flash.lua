@@ -31,9 +31,9 @@ end)
 ---@param pos Vector
 function cs_client.hud.flash(pos)
 	---@type Vector
-	local ppos = minetest.localplayer:get_pos()
+	---local ppos = minetest.localplayer:get_pos()
 
-	local distance = vector.distance(pos, ppos)
+	---local distance = vector.distance(pos, ppos)
 
 	--TODO: check if player see the grenade on the flash
 
@@ -41,6 +41,8 @@ function cs_client.hud.flash(pos)
 	--minetest.after(3, function()
 	--	minetest.localplayer:hud_change(hud_id, "text", "blank.png")
 	--end)
+	local angle = cs_client.utils.angle_player_view(pos)
+	minetest.chat_send_all(angle)
 	flash_start = 0
 end
 
