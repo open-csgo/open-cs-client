@@ -45,6 +45,7 @@ local menu_form = table.concat({
 	"image_button[0.25,8.75;1,1;;quit_game;;false;false;]",
 	"tooltip[quit;Quit Game]",
 })
+--[[
 
 local menu_tabs = {
 	main = {
@@ -62,6 +63,8 @@ local menu_tabs = {
 	awards = {},
 	inventory = {},
 }
+
+]]
 
 
 local menu_base = table.concat({
