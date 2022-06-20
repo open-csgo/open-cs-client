@@ -1,3 +1,5 @@
+---@param hp integer
+---@return string
 local function hp_to_cross(hp)
 	if hp <= 20 then
 		return "cs_player_cross.png^[brighten^[colorize:red:220"
@@ -6,6 +8,8 @@ local function hp_to_cross(hp)
 	end
 end
 
+---@param hp integer
+---@return string
 local function hp_to_bar(hp)
 	if hp <= 20 then
 		return "cs_player_health_bar.png^[colorize:red:220"
@@ -14,6 +18,8 @@ local function hp_to_bar(hp)
 	end
 end
 
+---@param hp integer
+---@return integer
 local function hp_to_color(hp)
 	if hp <= 20 then
 		return cs_client.text.warning

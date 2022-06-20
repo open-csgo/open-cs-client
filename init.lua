@@ -18,6 +18,7 @@ local modules = {
 	utils = {
 		"player_callbacks",
 		"controls",
+		"player",
 	},
 	api = {
 		"api",
@@ -31,6 +32,7 @@ local modules = {
 		"menu_inventory",
 		"hud_bar",
 		"flash",
+		"minimap",
 	},
 }
 
