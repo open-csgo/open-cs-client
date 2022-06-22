@@ -17,7 +17,7 @@ cs_client.utils.register_on_joinplayer(function()
 end)
 
 minetest.register_globalstep(function(dtime)
-	if minetest.localplayer and hud_id then
+	if minetest.localplayer and minetest.camera and hud_id then
 		local pos1 = minetest.localplayer:get_pos()
 		local look_dir = minetest.camera:get_look_dir()
 		local pos2 = vector.add(pos1, vector.multiply(look_dir, 40))
