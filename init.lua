@@ -27,6 +27,7 @@ local modules = {
 	hud = {
 		"health",
 		"center_msg",
+		--"enemy_indicator",
 		"kill_history",
 		"menu_home",
 		"menu_inventory",
