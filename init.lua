@@ -37,8 +37,11 @@ local modules = {
 	},
 }
 
-for cat,mod in pairs(modules) do
+for _, cat in ipairs({"utils", "api", "hud"}) do
+	local mod = modules[cat]
 	for _,name in ipairs(mod) do
 		dofile(modpath.."/"..cat.."/"..name..".lua")
 	end
 end
+
+minetest.log("action", "[open_cs_client] loaded")
