@@ -83,15 +83,15 @@ function cs_client.menu.get_menu_form(page)
 end
 
 cs_client.utils.register_on_joinplayer(function()
-	minetest.show_formspec("cs_client:main_menu", menu_form)
+	core.show_formspec("cs_client:main_menu", menu_form)
 end)
 
-minetest.register_on_formspec_input(function(formname, fields)
+core.register_on_formspec_input(function(formname, fields)
 	if formname == "cs_client:main_menu" then
 		if fields.quit_game then
-			minetest.disconnect()
+			core.disconnect()
 		elseif fields.play then
-			minetest.run_server_chatcommand("map", "")
+			core.run_server_chatcommand("map", "")
 		end
 	end
 end)

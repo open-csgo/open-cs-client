@@ -1,4 +1,4 @@
-minetest.register_on_inventory_open(function(_)
+core.register_on_inventory_open(function(_)
 	local menu_base = table.concat({
 		"formspec_version[4]",
 		"size[18,10]",
@@ -9,6 +9,6 @@ minetest.register_on_inventory_open(function(_)
 		--"background9[5,5;1,1;gui_formbg.png;true;10]",
 		--end style
 	})
-	minetest.show_formspec("cs_client:inventory", menu_base)
+	core.show_formspec("cs_client:inventory", menu_base)
 	return true
 end)

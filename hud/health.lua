@@ -30,14 +30,14 @@ end
 
 
 local hud_elements = {}
-minetest.register_globalstep(function()
-	if minetest.localplayer then
+core.register_globalstep(function()
+	if core.localplayer then
 		if not hud_elements.hp then
-			local hp = minetest.localplayer:get_hp()
+			local hp = core.localplayer:get_hp()
 
 			hud_elements.hp = {}
 
-			hud_elements.hp.cross = minetest.localplayer:hud_add({
+			hud_elements.hp.cross = core.localplayer:hud_add({
 				type = "image",
 				text = hp_to_cross(hp),
 				alignment = {x = 1, y = -1},
@@ -46,7 +46,7 @@ minetest.register_globalstep(function()
 				scale = {x = 0.3, y = 0.3},
 				z_index = 2,
 			})
-			hud_elements.hp.cross_bg = minetest.localplayer:hud_add({
+			hud_elements.hp.cross_bg = core.localplayer:hud_add({
 				type = "image",
 				text = "cs_player_cross.png^[colorize:gray:250",
 				alignment = {x = 1, y = -1},
@@ -56,7 +56,7 @@ minetest.register_globalstep(function()
 				z_index = -2,
 			})
 
-			hud_elements.hp.bar = minetest.localplayer:hud_add({
+			hud_elements.hp.bar = core.localplayer:hud_add({
 				type = "image",
 				text = "cs_player_health_bar.png",
 				alignment = {x = 1, y = -1},
@@ -65,7 +65,7 @@ minetest.register_globalstep(function()
 				scale = {x = hp/100, y = 1},
 				z_index = 2,
 			})
-			hud_elements.hp.bar_bg = minetest.localplayer:hud_add({
+			hud_elements.hp.bar_bg = core.localplayer:hud_add({
 				type = "image",
 				text = "cs_player_health_bar_bg.png",
 				alignment = {x = 1, y = -1},
@@ -75,7 +75,7 @@ minetest.register_globalstep(function()
 				z_index = -2,
 			})
 
-			hud_elements.hp.number = minetest.localplayer:hud_add({
+			hud_elements.hp.number = core.localplayer:hud_add({
 				type = "text",
 				text = tostring(hp),
 				number = cs_client.text.normal,
@@ -87,14 +87,14 @@ minetest.register_globalstep(function()
 				z_index = 2,
 			})
 		else
-			local hp = minetest.localplayer:get_hp()
-			minetest.localplayer:hud_change(hud_elements.hp.cross, "text", hp_to_cross(hp))
+			local hp = core.localplayer:get_hp()
+			core.localplayer:hud_change(hud_elements.hp.cross, "text", hp_to_cross(hp))
 
-			minetest.localplayer:hud_change(hud_elements.hp.number, "number", hp_to_color(hp))
-			minetest.localplayer:hud_change(hud_elements.hp.number, "text", tostring(hp))
+			core.localplayer:hud_change(hud_elements.hp.number, "number", hp_to_color(hp))
+			core.localplayer:hud_change(hud_elements.hp.number, "text", tostring(hp))
 
-			minetest.localplayer:hud_change(hud_elements.hp.bar, "scale", {x = hp/100, y = 1})
-			minetest.localplayer:hud_change(hud_elements.hp.bar, "text", hp_to_bar(hp))
+			core.localplayer:hud_change(hud_elements.hp.bar, "scale", {x = hp/100, y = 1})
+			core.localplayer:hud_change(hud_elements.hp.bar, "text", hp_to_bar(hp))
 		end
 	end
 end)

@@ -4,9 +4,9 @@ local player_offset = vector.new(0, 1.625, 0)
 ---@param pos Vector
 ---@return number
 function cs_client.utils.angle_player_view(pos)
-	local p = minetest.localplayer
+	local p = core.localplayer
 	if p then
-		local l = minetest.camera:get_look_dir()
+		local l = core.camera:get_look_dir()
 		local ppos = p:get_pos()
 
 		local rad = vector.angle(pos - (ppos + player_offset), l)

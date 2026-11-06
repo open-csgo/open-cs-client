@@ -1,6 +1,6 @@
 --This code is derivated from BuckarooBanzai's server side minetest mod "controls" (under GNU-GPL V2.1)
 
-local minetest = minetest
+local core = core
 
 local os = os
 
@@ -41,9 +41,9 @@ function controls.register_on_hold(func)
 end
 
 
-minetest.register_globalstep(function()
-	if minetest.localplayer then
-		local player_controls = minetest.localplayer:get_control()
+core.register_globalstep(function()
+	if core.localplayer then
+		local player_controls = core.localplayer:get_control()
 		for cname, cbool in pairs(player_controls) do
 			--Press a key
 			if cbool == true and controls.player[cname][1] == false then

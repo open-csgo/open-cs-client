@@ -7,7 +7,7 @@ end
 local hud_id
 
 cs_client.utils.register_on_joinplayer(function()
-	hud_id = minetest.localplayer:hud_add({
+	hud_id = core.localplayer:hud_add({
 		type = "image",
 		text = "blank.png",
 		position = {x = 0, y = 0},
@@ -22,19 +22,19 @@ local flash_start
 local blindness_time = 0
 local blinding_time = 0
 
-minetest.register_globalstep(function(dtime)
+core.register_globalstep(function(dtime)
 	if flash_start then
 		flash_start = flash_start + dtime
 		if flash_start > blinding_time then
-			minetest.localplayer:hud_change(hud_id, "text", "blank.png")
+			core.localplayer:hud_change(hud_id, "text", "blank.png")
 			flash_start = nil
 		elseif flash_start > blindness_time then
 			local t = blinding_time - blindness_time
 			local te = flash_start - blindness_time
 			local f = 255 - math.round((te/t)*255)
-			minetest.localplayer:hud_change(hud_id, "text", "cs_weapons_flash_hud.png^[opacity:"..f)
+			core.localplayer:hud_change(hud_id, "text", "cs_weapons_flash_hud.png^[opacity:"..f)
 		else
-			minetest.localplayer:hud_change(hud_id, "text", "cs_weapons_flash_hud.png")
+			core.localplayer:hud_change(hud_id, "text", "cs_weapons_flash_hud.png")
 		end
 	end
 end)
@@ -45,7 +45,7 @@ function cs_client.hud.flash(pos)
 	---https://www.youtube.com/watch?v=aTR7Surb80w
 	---https://counterstrike.fandom.com/wiki/Flashbang
 
-	--local ppos = minetest.localplayer:get_pos()
+	--local ppos = core.localplayer:get_pos()
 
 	--local distance = vector.distance(pos, ppos)
 	--local distance_inches = metters_to_inches(distance)
@@ -71,11 +71,11 @@ function cs_client.hud.flash(pos)
 	--print(blindness_time)
 	--print(blinding_time)
 
-	minetest.display_chat_message(angle)
+	core.display_chat_message(angle)
 	flash_start = 0
 end
 
-minetest.register_chatcommand("f", {
+core.register_chatcommand("f", {
 	func = function()
 		cs_client.hud.flash(vector.zero())
 		return true, "Done"
@@ -85,25 +85,25 @@ minetest.register_chatcommand("f", {
 local mod_channel_name
 
 cs_client.utils.register_on_joinplayer(function()
-	mod_channel_name = "cs_client:flash:"..minetest.localplayer:get_name()
-	minetest.mod_channel_join(mod_channel_name)
+	mod_channel_name = "cs_client:flash:"..core.localplayer:get_name()
+	core.mod_channel_join(mod_channel_name)
 end)
 
-minetest.register_on_modchannel_message(function(cname, sender, message)
+core.register_on_modchannel_message(function(cname, sender, message)
 	if sender == "" and cname == mod_channel_name then
 		local parsed_pos = vector.from_string(message)
 		if parsed_pos then
 			cs_client.hud.flash(parsed_pos)
 		else
-			minetest.log("warning", "[cs_client] Server sended invalid data on ModChannel "..mod_channel_name)
+			core.log("warning", "[cs_client] Server sended invalid data on ModChannel "..mod_channel_name)
 		end
 	end
 end)
 
 
---[[print(dump(minetest.registered_on_death))
+--[[print(dump(core.registered_on_death))
 
-for k,v in pairs(minetest.registered_on_death) do
-	print(minetest.callback_origins[v])
-	print(dump(minetest.callback_origins))
+for k,v in pairs(core.registered_on_death) do
+	print(core.callback_origins[v])
+	print(dump(core.callback_origins))
 end]]

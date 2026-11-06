@@ -4,11 +4,11 @@
 local timeout = 0
 
 local msg_bar = nil
-minetest.register_globalstep(function(dtime)
-	if minetest.localplayer then
+core.register_globalstep(function(dtime)
+	if core.localplayer then
 		if not msg_bar then
 			msg_bar = {}
-			msg_bar.warn_text = minetest.localplayer:hud_add({
+			msg_bar.warn_text = core.localplayer:hud_add({
 				type = "text",
 				text = "",
 				number = cs_client.text.warning,
@@ -19,7 +19,7 @@ minetest.register_globalstep(function(dtime)
 				style = 1,
 				z_index = 2,
 			})
-			msg_bar.warn_sign = minetest.localplayer:hud_add({
+			msg_bar.warn_sign = core.localplayer:hud_add({
 				type = "image",
 				text = "blank.png",
 				alignment = {x = 0, y = -1},
@@ -28,7 +28,7 @@ minetest.register_globalstep(function(dtime)
 				scale = {x = 0.05, y = 0.05},
 				z_index = 2,
 			})
-			msg_bar.text = minetest.localplayer:hud_add({
+			msg_bar.text = core.localplayer:hud_add({
 				type = "text",
 				text = "",
 				number = cs_client.text.normal,
@@ -39,7 +39,7 @@ minetest.register_globalstep(function(dtime)
 				style = 0,
 				z_index = 2,
 			})
-			msg_bar.bg = minetest.localplayer:hud_add({
+			msg_bar.bg = core.localplayer:hud_add({
 				type = "image",
 				text = "blank.png",
 				alignment = {x = 0, y = -1},
@@ -51,26 +51,26 @@ minetest.register_globalstep(function(dtime)
 		else
 			timeout = timeout - dtime
 			if timeout <= 0 then
-				minetest.localplayer:hud_change(msg_bar.warn_text, "text", "")
-				minetest.localplayer:hud_change(msg_bar.warn_sign, "text", "blank.png")
-				minetest.localplayer:hud_change(msg_bar.text, "text", "")
-				minetest.localplayer:hud_change(msg_bar.bg, "text", "blank.png")
+				core.localplayer:hud_change(msg_bar.warn_text, "text", "")
+				core.localplayer:hud_change(msg_bar.warn_sign, "text", "blank.png")
+				core.localplayer:hud_change(msg_bar.text, "text", "")
+				core.localplayer:hud_change(msg_bar.bg, "text", "blank.png")
 			end
 		end
 	end
 end)
 
 function cs_client.hud.add_center_msg(text)
-	if minetest.localplayer then
+	if core.localplayer then
 		timeout = 4
-		minetest.localplayer:hud_change(msg_bar.warn_text, "text", "Alert")
-		minetest.localplayer:hud_change(msg_bar.warn_sign, "text", "cs_player_msg_warning.png^[brighten^[colorize:red:175")
-		minetest.localplayer:hud_change(msg_bar.text, "text", text)
-		minetest.localplayer:hud_change(msg_bar.bg, "text", "cs_player_msg_bg.png")
+		core.localplayer:hud_change(msg_bar.warn_text, "text", "Alert")
+		core.localplayer:hud_change(msg_bar.warn_sign, "text", "cs_player_msg_warning.png^[brighten^[colorize:red:175")
+		core.localplayer:hud_change(msg_bar.text, "text", text)
+		core.localplayer:hud_change(msg_bar.bg, "text", "cs_player_msg_bg.png")
 	end
 end
 
-minetest.register_chatcommand("cmsg", {
+core.register_chatcommand("cmsg", {
 	func = function(param)
 		cs_client.hud.add_center_msg("You kiled a teammate!")
 	end,
@@ -80,11 +80,11 @@ minetest.register_chatcommand("cmsg", {
 local mod_channel_name
 
 cs_client.utils.register_on_joinplayer(function()
-	mod_channel_name = "cs_client:center_message:"..minetest.localplayer:get_name()
-	minetest.mod_channel_join(mod_channel_name)
+	mod_channel_name = "cs_client:center_message:"..core.localplayer:get_name()
+	core.mod_channel_join(mod_channel_name)
 end)
 
-minetest.register_on_modchannel_message(function(cname, sender, message)
+core.register_on_modchannel_message(function(cname, sender, message)
 	if sender == "" and cname == mod_channel_name then
 		cs_client.hud.add_center_msg(message)
 	end

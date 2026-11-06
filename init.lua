@@ -1,5 +1,5 @@
-local modname = minetest.get_current_modname()
-local modpath = minetest.get_modpath(modname)
+local modname = core.get_current_modname()
+local modpath = core.get_modpath(modname)
 
 ---CS Client API
 cs_client = {
@@ -44,4 +44,4 @@ for _, cat in ipairs({"utils", "api", "hud"}) do
 	end
 end
 
-minetest.log("action", "[open_cs_client] loaded")
+core.log("action", "[open_cs_client] loaded")
