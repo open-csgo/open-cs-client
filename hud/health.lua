@@ -82,7 +82,7 @@ minetest.register_globalstep(function()
 				alignment = {x = 1, y = -1},
 				position = {x = 0, y = 1},
 				offset = {x = 20+50, y = -20},
-				size = {x=2},
+				size = {x=2, y=0},
 				style = 1,
 				z_index = 2,
 			})

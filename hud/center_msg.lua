@@ -15,7 +15,7 @@ minetest.register_globalstep(function(dtime)
 				alignment = {x = 0, y = -1},
 				position = {x = 0.5, y = 1},
 				offset = {x = 10, y = -190},
-				size = {x=1},
+				size = {x=1, y=0},
 				style = 1,
 				z_index = 2,
 			})
@@ -35,7 +35,7 @@ minetest.register_globalstep(function(dtime)
 				alignment = {x = 0, y = -1},
 				position = {x = 0.5, y = 1},
 				offset = {x = 0, y = -165},
-				size = {x=1},
+				size = {x=1, y=0},
 				style = 0,
 				z_index = 2,
 			})

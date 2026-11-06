@@ -1,14 +1,14 @@
 # Open CS client
 
-The client-side Lua mod providing Open CS HUD, menus, and server mod-channel communication. It requires Luanti 5.17 or newer; the development client build is pinned to 5.17.0.
+The client-side Lua mod providing Open CS HUD, menus, and server mod-channel communication. It requires Luanti 5.18 or newer; the development client build is pinned to 5.18.0.
 
 ## Development setup
 
-Follow the [development setup guide](https://github.com/open-csgo/open-cs-dev#readme) to build the Linux client and start the Docker Compose server. Clone this repository beside `open-cs` and `open-cs-dev`, then run `./client alice` from `open-cs-dev` to connect as `alice/alice`. The launcher installs and enables this mod in an isolated player profile automatically. Restart the client to pick up Lua changes; rebuilding Luanti is unnecessary.
+Follow the [development setup guide](https://github.com/open-csgo/open-cs-dev#readme) to build the Linux client and start the Docker Compose server. Clone this repository beside `open-cs` and `open-cs-dev`, then run `./client.sh alice` from `open-cs-dev` to connect as `alice/alice`. The launcher installs and enables this mod in an isolated player profile automatically. Restart the client to pick up Lua changes; rebuilding Luanti is unnecessary.
 
 ## Manual installation
 
-Use a Luanti 5.17 client with an Open CS server. In the client's user directory:
+Use a Luanti 5.18 client with an Open CS server. In the client's user directory:
 
 1. Copy or link this checkout to `clientmods/open_cs_client`.
 2. Add `load_mod_open_cs_client = true` to `clientmods/mods.conf`.
