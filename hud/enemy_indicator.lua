@@ -2,7 +2,7 @@ local hud_id
 
 cs_client.utils.register_on_joinplayer(function()
 	hud_id = minetest.localplayer:hud_add({
-		hud_elem_type = "text",
+		type = "text",
         position = {x=0.5, y=0.5},
         name = "cs_client:enemy_indicator",
         scale = {x = 2, y = 2},

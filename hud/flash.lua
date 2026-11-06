@@ -8,7 +8,7 @@ local hud_id
 
 cs_client.utils.register_on_joinplayer(function()
 	hud_id = minetest.localplayer:hud_add({
-		hud_elem_type = "image",
+		type = "image",
 		text = "blank.png",
 		position = {x = 0, y = 0},
 		alignment = {x = 1, y = 1},

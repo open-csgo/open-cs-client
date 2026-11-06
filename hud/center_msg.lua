@@ -9,7 +9,7 @@ minetest.register_globalstep(function(dtime)
 		if not msg_bar then
 			msg_bar = {}
 			msg_bar.warn_text = minetest.localplayer:hud_add({
-				hud_elem_type = "text",
+				type = "text",
 				text = "",
 				number = cs_client.text.warning,
 				alignment = {x = 0, y = -1},
@@ -20,7 +20,7 @@ minetest.register_globalstep(function(dtime)
 				z_index = 2,
 			})
 			msg_bar.warn_sign = minetest.localplayer:hud_add({
-				hud_elem_type = "image",
+				type = "image",
 				text = "blank.png",
 				alignment = {x = 0, y = -1},
 				position = {x = 0.5, y = 1},
@@ -29,7 +29,7 @@ minetest.register_globalstep(function(dtime)
 				z_index = 2,
 			})
 			msg_bar.text = minetest.localplayer:hud_add({
-				hud_elem_type = "text",
+				type = "text",
 				text = "",
 				number = cs_client.text.normal,
 				alignment = {x = 0, y = -1},
@@ -40,7 +40,7 @@ minetest.register_globalstep(function(dtime)
 				z_index = 2,
 			})
 			msg_bar.bg = minetest.localplayer:hud_add({
-				hud_elem_type = "image",
+				type = "image",
 				text = "blank.png",
 				alignment = {x = 0, y = -1},
 				position = {x = 0.5, y = 1},

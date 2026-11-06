@@ -2,7 +2,7 @@ local hud_ids = {}
 
 cs_client.utils.register_on_joinplayer(function()
 	hud_ids[1] = minetest.localplayer:hud_add({
-		hud_elem_type = "image",
+		type = "image",
         position = {x=0.95, y=0.8},
         scale = {x = 2, y = 2},
         text = "default_stone.png",
@@ -17,7 +17,7 @@ cs_client.utils.register_on_joinplayer(function()
 	})
 
 	hud_ids[2] = minetest.localplayer:hud_add({
-		hud_elem_type = "image",
+		type = "image",
         position = {x=0.95, y=0.85},
         scale = {x = 2, y = 2},
         text = "default_stone.png",
@@ -32,7 +32,7 @@ cs_client.utils.register_on_joinplayer(function()
 	})
 
 	hud_ids[3] = minetest.localplayer:hud_add({
-		hud_elem_type = "image",
+		type = "image",
         position = {x=0.95, y=0.9},
         scale = {x = 2, y = 2},
         text = "default_stone.png",
@@ -47,7 +47,7 @@ cs_client.utils.register_on_joinplayer(function()
 	})
 
 	hud_ids[4] = minetest.localplayer:hud_add({
-		hud_elem_type = "image",
+		type = "image",
         position = {x=0.95, y=0.95},
         scale = {x = 2, y = 2},
         text = "default_stone.png",

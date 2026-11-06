@@ -38,7 +38,7 @@ minetest.register_globalstep(function()
 			hud_elements.hp = {}
 
 			hud_elements.hp.cross = minetest.localplayer:hud_add({
-				hud_elem_type = "image",
+				type = "image",
 				text = hp_to_cross(hp),
 				alignment = {x = 1, y = -1},
 				position = {x = 0, y = 1},
@@ -47,7 +47,7 @@ minetest.register_globalstep(function()
 				z_index = 2,
 			})
 			hud_elements.hp.cross_bg = minetest.localplayer:hud_add({
-				hud_elem_type = "image",
+				type = "image",
 				text = "cs_player_cross.png^[colorize:gray:250",
 				alignment = {x = 1, y = -1},
 				position = {x = 0, y = 1},
@@ -57,7 +57,7 @@ minetest.register_globalstep(function()
 			})
 
 			hud_elements.hp.bar = minetest.localplayer:hud_add({
-				hud_elem_type = "image",
+				type = "image",
 				text = "cs_player_health_bar.png",
 				alignment = {x = 1, y = -1},
 				position = {x = 0, y = 1},
@@ -66,7 +66,7 @@ minetest.register_globalstep(function()
 				z_index = 2,
 			})
 			hud_elements.hp.bar_bg = minetest.localplayer:hud_add({
-				hud_elem_type = "image",
+				type = "image",
 				text = "cs_player_health_bar_bg.png",
 				alignment = {x = 1, y = -1},
 				position = {x = 0, y = 1},
@@ -76,7 +76,7 @@ minetest.register_globalstep(function()
 			})
 
 			hud_elements.hp.number = minetest.localplayer:hud_add({
-				hud_elem_type = "text",
+				type = "text",
 				text = tostring(hp),
 				number = cs_client.text.normal,
 				alignment = {x = 1, y = -1},

@@ -11,7 +11,7 @@ cs_client.utils.register_on_joinplayer(function()
 	for i = 1,5 do
 		hud_ids[i] = {}
 		hud_ids[i].bg = minetest.localplayer:hud_add({
-			hud_elem_type = "image",
+			type = "image",
 			text = "blank.png",
 			alignment = {x = -1, y = 1},
 			position = {x = 1, y = 0},
@@ -21,7 +21,7 @@ cs_client.utils.register_on_joinplayer(function()
 		})
 
 		hud_ids[i].name = minetest.localplayer:hud_add({
-			hud_elem_type = "text",
+			type = "text",
 			text = "blank.png",
 			alignment = {x = -1, y = 1},
 			position = {x = 1, y = 0},
